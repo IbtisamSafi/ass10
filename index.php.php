@@ -1,36 +1,30 @@
-
 <?php
 
 $people = [
     [
-        "name"      => "Ibtisam Ahmed",
+        "name"      => "Ibtisam Safi",
         "role"      => "Developer",
-        "skills"    => ["PHP", "Kotlin", "Python", "Clean Architecture"],
-        "image_url" => "https://i.pravatar.cc/150?img=47"
+        "skills"    => ["PHP", "Kotlin", "Python", "Clean Architecture"]
     ],
     [
         "name"      => "Sara Ali",
         "role"      => "Designer",
-        "skills"    => ["UI/UX", "Figma", "Photoshop"],
-        "image_url" => "https://i.pravatar.cc/150?img=5"
+        "skills"    => ["UI/UX", "Figma", "Photoshop"]
     ],
     [
         "name"      => "Khaled Omar",
         "role"      => "Manager",
-        "skills"    => ["Agile", "Scrum", "Leadership"],
-        "image_url" => "https://i.pravatar.cc/150?img=3"
+        "skills"    => ["Agile", "Scrum", "Leadership"]
     ],
     [
         "name"      => "Mona Sami",
         "role"      => "Analyst",
-        "skills"    => ["Python", "Data BI", "Excel"],
-        "image_url" => "https://i.pravatar.cc/150?img=10"
+        "skills"    => ["Python", "Data BI", "Excel"]
     ],
     [
         "name"      => "Ziad Rami",
         "role"      => "Tester",
-        "skills"    => ["Selenium", "QA Testing", "Jest"],
-        "image_url" => "https://i.pravatar.cc/150?img=8"
+        "skills"    => ["Selenium", "QA Testing", "Jest"]
     ]
 ];
 
@@ -41,7 +35,6 @@ function renderCard(array $person): string {
     $html = '<div class="card">';
     $html .= '  <div class="card-color-bar" style="background-color: ' . $cardColor . ';"></div>';
     $html .= '  <div class="card-body">';
-    $html .= '      <img src="' . htmlspecialchars($person['image_url']) . '" alt="' . htmlspecialchars($person['name']) . '">';
     $html .= '      <h3>' . htmlspecialchars($person['name']) . '</h3>';
     $html .= '      <span class="role" style="background-color: ' . $cardColor . '; color: #1a1a2e;">' . htmlspecialchars($person['role']) . '</span>';
     $html .= '      <div class="skills"><strong>Skills:</strong> ' . htmlspecialchars($skillsList) . '</div>';
@@ -96,7 +89,10 @@ $currentDate = date("F j, Y");
             border-bottom: 3px solid #ce93d8;
         }
         .header .logo-row {
-            display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 10px;
+            display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 10px;
+        }
+        .header .university-title {
+            color: #ccc; font-weight: 600; font-size: 1.1rem; letter-spacing: 0.5px;
         }
         .header h1 { font-size: 1.8rem; color: #fff; margin-bottom: 5px; }
         .header h1 span { color: #ce93d8; }
@@ -170,30 +166,24 @@ $currentDate = date("F j, Y");
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
         .card-color-bar { height: 5px; }
-        .card-body { padding: 25px; text-align: center; }
-        .card-body img {
-            width: 80px; height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 15px;
-            border: 3px solid rgba(255,255,255,0.1);
-        }
-        .card-body h3 { color: #fff; font-size: 1.2rem; margin-bottom: 5px; }
+        .card-body { padding: 30px 25px; text-align: center; }
+        .card-body h3 { color: #fff; font-size: 1.25rem; margin-bottom: 8px; }
         .card-body .role {
             font-size: 0.85rem;
             font-weight: 600;
-            padding: 3px 12px;
+            padding: 4px 12px;
             border-radius: 20px;
             display: inline-block;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
-        .card-body .skills { color: #aaa; font-size: 0.85rem; }
+        .card-body .skills { color: #aaa; font-size: 0.85rem; text-align: left; background: rgba(0,0,0,0.15); padding: 10px; border-radius: 8px; }
 
         .no-results {
             text-align: center;
             padding: 50px 20px;
             color: #666;
             font-size: 1.1rem;
+            grid-column: 1 / -1;
         }
 
         .footer {
@@ -209,8 +199,7 @@ $currentDate = date("F j, Y");
 
 <div class="header">
     <div class="logo-row">
-        <img src="https://alaqsa.edu.ps/site/MainPage/Resources/img/logo.png" alt="Al-Aqsa University" style="width:50px;height:50px;border-radius:10px;object-fit:contain;background:#fff;padding:3px;">
-        <span style="color:#ccc;font-weight:600;">Al-Aqsa University</span>
+        <span class="university-title">Al-Aqsa University</span>
     </div>
     <h1>Profile <span>Card Generator</span></h1>
     <p>Week 11 - Task 01: PHP Arrays, Functions & Loops</p>
@@ -241,7 +230,7 @@ $currentDate = date("F j, Y");
             <?php endforeach; ?>
         <?php else: ?>
             <div class="no-results">
-                <p>No people found. Try another search or complete TODO 1!</p>
+                <p>No people found. Try another search!</p>
             </div>
         <?php endif; ?>
     </div>
